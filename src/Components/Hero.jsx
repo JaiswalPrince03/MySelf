@@ -39,19 +39,18 @@ const Hero = () => {
             href="https://github.com/JaiswalPrince03" 
             target="_blank" 
             rel="noopener noreferrer"
-            className='bg-gradient-to-r from-gray-500 to-gray-700 text-white
+            className='bg-gradient-to-r from-gray-700 to-gray-900 text-white
             transform transition-transform duration-300 hover:scale-105 px-4 py-2 rounded-full hover:shadow-lg hover:shadow-black'>
               <i className="fab fa-github" /> GitHub
           </a>
           <a 
-            href="mailto:princejaiswal9199@gmail.com" 
+            href="https://www.instagram.com/its_jaiswal_prince?igsh=bzFjcDY2bHl4ZGo1" 
             target="_blank" 
             rel="noopener noreferrer"
-            className='bg-gradient-to-r from-red-500 to-red-700 text-white
+            className='bg-gradient-to-r from-pink-500 to-pink-700 text-white
             transform transition-transform duration-300 hover:scale-105 px-4 py-2 rounded-full hover:shadow-lg hover:shadow-black'>
-              <i className="fas fa-envelope" /> Email
+              <i className="fab fa-instagram" /> Instagram
           </a>
-         
         </div>
       </section>
     </div>

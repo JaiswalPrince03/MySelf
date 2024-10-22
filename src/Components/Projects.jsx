@@ -40,78 +40,65 @@ const Projects = () => {
   const [hoveredImageIndex, setHoveredImageIndex] = useState(null);
   const [showFullDescription, setShowFullDescription] = useState({});
 
-  const truncateDescription = (description, maxLength) => {
-    const words = description.split(' ');
-    if (words.length > maxLength) {
-      return words.slice(0, maxLength).join(' ') + '...';
-    }
-    return description;
-  };
-
-  const toggleDescription = (index) => {
-    setShowFullDescription(prevState => ({
-      ...prevState,
-      [index]: !prevState[index]
-    }));
-  };
-
   return (
-    <section id="projects" className="py-16">
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-12 text-black">Projects</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-          {projects.map((project, index) => (
-            <div 
-              key={index} 
-              className="font-normal italic bg-gray-100 rounded-lg shadow-md p-6 shadow-emerald-500/20 hover:shadow-lg hover:shadow-black"
-            >
-              <div 
-                className="relative h-48 overflow-hidden"
-                onMouseEnter={() => setHoveredImageIndex(index)}
-                onMouseLeave={() => setHoveredImageIndex(null)}
+    <div className="container mx-auto py-16" id="projects">
+      <h2 className="text-4xl font-bold text-center mb-12">Projects</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {projects.map((project, index) => (
+          <div
+            key={index}
+            className="bg-white rounded-lg shadow-md overflow-hidden"
+            onMouseEnter={() => setHoveredImageIndex(index)}
+            onMouseLeave={() => setHoveredImageIndex(null)}
+          >
+            <img
+              src={project.image}
+              alt={project.title}
+              className={`w-full h-48 object-cover transition-transform duration-300 ${
+                hoveredImageIndex === index ? 'transform scale-105' : ''
+              }`}
+            />
+            <div className="p-4">
+              <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
+              <p className="text-gray-700 mb-4">
+                {showFullDescription[index]
+                  ? project.description
+                  : `${project.description.substring(0, 100)}...`}
+                <button
+                  className="text-blue-500 hover:underline ml-2"
+                  onClick={() =>
+                    setShowFullDescription((prev) => ({
+                      ...prev,
+                      [index]: !prev[index],
+                    }))
+                  }
+                >
+                  {showFullDescription[index] ? 'Show Less' : 'Show More'}
+                </button>
+              </p>
+              <div className="flex flex-wrap mb-4">
+                {project.technologies.map((tech, techIndex) => (
+                  <span
+                    key={techIndex}
+                    className="bg-gray-200 text-gray-800 text-sm font-semibold mr-2 mb-2 px-2.5 py-0.5 rounded"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+              <a
+                href={project.githubLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 hover:underline"
               >
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
-                  className="w-full h-full object-cover transition-transform duration-300 ease-in-out"
-                  style={{
-                    transform: hoveredImageIndex === index ? 'scale(1.1)' : 'scale(1)',
-                  }}
-                />
-              </div>
-              <div className="mt-6">
-                <h3 className="text-xl font-semibold mb-2 text-black">{project.title}</h3>
-                <p className="text-gray-600 mb-4">
-                  {showFullDescription[index] 
-                    ? project.description 
-                    : truncateDescription(project.description, 30)}
-                  {project.description.split(' ').length > 30 && (
-                    <button 
-                      onClick={() => toggleDescription(index)}
-                      className="text-blue-500 hover:text-blue-600 ml-1"
-                    >
-                      {showFullDescription[index] ? 'See less' : 'See more'}
-                    </button>
-                  )}
-                </p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.technologies.map((tech, techIndex) => (
-                    <span key={techIndex} className="bg-gray-200 text-gray-800 px-2 py-1 rounded text-sm">
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-                <div className="flex justify-center">
-                  <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded transition-all duration-300 hover:translate-x-1 hover:shadow-md hover:shadow-black">
-                    GitHub
-                  </a>
-                </div>
-              </div>
+                View on GitHub
+              </a>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
-    </section>
+    </div>
   );
 };
 

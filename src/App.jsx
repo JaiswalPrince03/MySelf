@@ -7,6 +7,7 @@ import TechStack from './Components/TechStack'
 import Projects from './Components/Projects'
 import Contact from './Components/Contact'
 import Footer from './Components/Footer'
+import { HashRouter } from 'react-router-dom'
 
 function App() {
   const [theme, setTheme] = useState('light')
@@ -30,15 +31,17 @@ function App() {
   }
 
   return (
-    <div className={`App ${theme}`}>
-      <Navbar toggleTheme={toggleTheme} />
-      <Hero />
-      <About />
-      <TechStack />
-      <Projects />
-      <Contact />
-      <Footer />
-    </div>
+    <HashRouter basename="/my-repo-name">
+      <div className={`App ${theme}`}>
+        <Navbar toggleTheme={toggleTheme} />
+        <Hero />
+        <About />
+        <TechStack />
+        <Projects />
+        <Contact />
+        <Footer />
+      </div>
+    </HashRouter>
   )
 }
 

@@ -39,37 +39,30 @@ const TechStack = () => {
         { icon: "fas fa-object-group", color: "text-green-500", name: "OOPs" },
         { icon: "fab fa-wordpress", color: "text-blue-500", name: "WordPress" },
         { icon: canvaIcon, color: "text-pink-500", name: "Canva" },
-        { icon: "fas fa-list-alt", color: "text-green-500", name: "Data Structure & Algorithm" },
       ]
     }
   ];
 
-  const renderTechStack = (stack) => (
-    <div key={stack.category} className="font-semibold italic bg-gray-100 rounded-lg shadow-md p-6  hover:shadow-black">
-      <h3 className="text-xl font-bold mb-4 text-gray-800">{stack.category}</h3>
-      <div className="grid grid-cols-3 gap-4">
-        {stack.technologies.slice(0, 9).map((tech) => (
-          <div key={tech.name} className="flex flex-col items-center justify-center bg-gray-200 rounded-lg p-2 hover:bg-white transition-all duration-300 hover:translate-x-1 hover:shadow-md hover:shadow-black">
-            {typeof tech.icon === 'string' && tech.icon.startsWith('fa') ? (
-              <i className={`${tech.icon} text-2xl sm:text-3xl ${tech.color}`} />
-            ) : (
-              <img src={tech.icon} alt={tech.name} className="w-8 h-8 sm:w-10 sm:h-10" />
-            )}
-            <h4 className="text-xs sm:text-sm font-semibold mt-1 text-center text-gray-800">{tech.name}</h4>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-
   return (
-    <div className="text-gray-800 py-20" id="techstack">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-center mb-12">Tech Stack</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {techStacks.map(renderTechStack)}
+    <div className="container mx-auto py-16" id="techstack">
+      <h2 className="text-4xl font-bold text-center mb-12">Tech Stack</h2>
+      {techStacks.map((stack, index) => (
+        <div key={index} className="mb-8">
+          <h3 className="text-2xl font-bold mb-4">{stack.category}</h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {stack.technologies.map((tech, techIndex) => (
+              <div key={techIndex} className="flex items-center space-x-2">
+                {typeof tech.icon === 'string' ? (
+                  <i className={`${tech.icon} ${tech.color} text-3xl`}></i>
+                ) : (
+                  <img src={tech.icon} alt={tech.name} className="w-8 h-8" />
+                )}
+                <span className="text-lg">{tech.name}</span>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      ))}
     </div>
   );
 };
