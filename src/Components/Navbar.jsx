@@ -22,9 +22,7 @@ const Navbar = () => {
             className="w-12 h-12 mr-2 cursor-pointer"
             onClick={handleLogoClick}
           />
-          <a href="#" onClick={handleLogoClick} className="text-2xl font-bold">
-            Prince Jaiswal
-          </a>
+          <a href="#" onClick={handleLogoClick} className="text-2xl font-bold">Prince Jaiswal</a>
         </div>
         <div className="md:hidden">
           <button
@@ -36,15 +34,9 @@ const Navbar = () => {
           </button>
         </div>
         <div className={`md:flex ${isMenuOpen ? "block" : "hidden"}`}>
-          <a href="#about" className="block md:inline-block px-4 py-2">
-            About
-          </a>
-          <a href="#projects" className="block md:inline-block px-4 py-2">
-            Projects
-          </a>
-          <a href="#contact" className="block md:inline-block px-4 py-2">
-            Contact
-          </a>
+          <a href="#about" className="block md:inline-block px-4 py-2">About</a>
+          <a href="#projects" className="block md:inline-block px-4 py-2">Projects</a>
+          <a href="#contact" className="block md:inline-block px-4 py-2">Contact</a>
         </div>
       </div>
     </nav>
