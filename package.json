@@ -1,7 +1,7 @@
 {
   "name": "my-project",
   "private": true,
-  "homepage": "https://JaiswalPrince03.github.io/MySelf",
+  "homepage": "https://<your-username>.github.io/MySelf",
   "version": "0.0.0",
   "type": "module",
   "scripts": {
