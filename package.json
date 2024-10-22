@@ -1,5 +1,6 @@
 {
   "name": "my-project",
+  "homepage": "https://github.com/JaiswalPrince03/MySelf.git",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -28,4 +29,5 @@
     "tailwindcss": "^3.4.14",
     "vite": "^5.4.8"
   }
+    
 }
