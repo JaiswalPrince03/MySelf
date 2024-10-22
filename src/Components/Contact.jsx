@@ -24,7 +24,7 @@ const Contact = () => {
                 <span>Chakia, East-Champaran, Bihar, India</span>
             </div>
           </div>
-          <div className='flex-1 w-full'>
+          <div className=' flex-1 w-full'>
             <form className='space-y-4'>
                 <div>
                     <label htmlFor="name" className='block mb-2'>Your Name</label>
@@ -40,13 +40,22 @@ const Contact = () => {
                     focus:border-black text-black'
                     placeholder='Enter Your Email'/>
                 </div>
-                {/* Add more form fields as needed */}
+                <div>
+                    <label htmlFor="message" className='block mb-2'>Message</label>
+                    <textarea 
+                    className='w-full p-2 rounded bg-gray-100 border border-gray-200 focus:outline-none
+                    focus:border-black text-black'
+                    rows="5"
+                    placeholder='Enter Your Message'/>
+                </div>
+                <button className='bg-blue-500 hover:bg-blue-600 text-white
+            transform transition-transform duration-300 hover:scale-105 px-8 py-2 rounded-full'>Send</button>
             </form>
           </div>
         </div>
       </div>
     </div>
-  );
+  )
 };
 
 export default Contact;

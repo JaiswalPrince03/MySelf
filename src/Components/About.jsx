@@ -3,11 +3,11 @@ import AboutImage from "../assets/Aboutme-image.png";
 
 const About = () => {
   return (
-    <div className="text-black" id="about">
+    <div className=" text-black" id="about">
       <div className="container mx-auto p-1 md:p-16 lg:p-24 pt-0 mt-[-20px]">
         <h2 className="text-4xl font-bold text-center mb-0">About Me</h2>
         <div className="flex flex-col md:flex-row items-center md:space-x-12">
-          <div className="w-full md:w-[45%] flex justify-center mb-6 md:mb-0">
+          <div className="w-full md:w-[45%] flex justify-center mb-6 md:mb-0 ">
             <img
               src={AboutImage}
               alt="My Image"
@@ -27,7 +27,7 @@ const About = () => {
 
         <div className="mt-12">
           <h2 className="text-4xl font-bold text-center mb-3">Education</h2>
-          <div className="flex flex-col md:flex-row justify-center md:space-x-12">
+          <div className=" flex flex-col md:flex-row justify-center md:space-x-12">
             {[
               {
                 title: "10th Standard",
@@ -35,13 +35,39 @@ const About = () => {
                 passingYear: "2018",
                 percentage: "60.2%",
               },
-              // Add more education details here
+              {
+                title: "12th Standard",
+                school: "S.R.A.P. College, Bara Chakia",
+                passingYear: "2020",
+                percentage: "64.2%",
+              },
+              {
+                title: "Graduation",
+                degree: "B.Tech CSE (CTIS)",
+                college: "Maharishi Markandeshwar (Deemed to be University)",
+                batch: "2021-2025",
+                cgpa: "8 CGPA",
+              },
             ].map((education, index) => (
-              <div key={index} className="mb-6 md:mb-0">
-                <h3 className="text-2xl font-bold">{education.title}</h3>
-                <p className="text-lg">{education.school}</p>
-                <p className="text-lg">{education.passingYear}</p>
-                <p className="text-lg">{education.percentage}</p>
+              <div
+                key={index}
+                className=" font-normal italic bg-gray-100 w-full md:w-[30%]  p-4 rounded-2xl shadow-md mb-6 md:mb-0 transition-transform duration-300 hover:scale-105 hover:shadow-black"
+              >
+                <h3 className="text-2xl font-bold mb-5">{education.title}</h3>
+                {education.degree && (
+                  <p className="text-base leading-relaxed mb-2">
+                    Degree: {education.degree}
+                  </p>
+                )}
+                <p className="text-base leading-relaxed mb-2">
+                  School/College: {education.school || education.college}
+                </p>
+                <p className="text-base leading-relaxed mb-2">
+                  Passing Year: {education.passingYear || education.batch}
+                </p>
+                <p className="text-base leading-relaxed">
+                  Percentage/CGPA: {education.percentage || education.cgpa}
+                </p>
               </div>
             ))}
           </div>

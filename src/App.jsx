@@ -8,26 +8,36 @@ import Projects from './Components/Projects'
 import Contact from './Components/Contact'
 import Footer from './Components/Footer'
 
+
 function App() {
-  const [theme, setTheme] = useState('light')
+  // Add console logs here
+  console.log('App component is being rendered');
+
+  const [theme, setTheme] = useState('light');
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem('theme')
+    // Add console logs here
+    console.log('useEffect is being called');
+    const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
-      setTheme(savedTheme)
+      setTheme(savedTheme);
     } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      setTheme('dark')
+      setTheme('dark');
     }
-  }, [])
+  }, []);
 
   useEffect(() => {
-    document.documentElement.classList.toggle('dark', theme === 'dark')
-    localStorage.setItem('theme', theme)
-  }, [theme])
+    // Add console logs here
+    console.log('useEffect is being called with theme:', theme);
+    document.documentElement.classList.toggle('dark', theme === 'dark');
+    localStorage.setItem('theme', theme);
+  }, [theme]);
 
   const toggleTheme = () => {
-    setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light')
-  }
+    // Add console logs here
+    console.log('toggleTheme is being called');
+    setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
+  };
 
   return (
     <div className={`App ${theme}`}>
@@ -39,7 +49,6 @@ function App() {
       <Contact />
       <Footer />
     </div>
-  )
+  );
 }
-
 export default App

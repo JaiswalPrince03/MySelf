@@ -33,10 +33,14 @@ const Navbar = () => {
             <i className="fas fa-bars"></i>
           </button>
         </div>
-        <div className={`md:flex ${isMenuOpen ? "block" : "hidden"}`}>
-          <a href="#about" className="block md:inline-block px-4 py-2">About</a>
-          <a href="#projects" className="block md:inline-block px-4 py-2">Projects</a>
-          <a href="#contact" className="block md:inline-block px-4 py-2">Contact</a>
+        <div className={`md:flex md:items-center ${isMenuOpen ? 'block' : 'hidden'} absolute md:static bg-[#f8fafc] md:bg-transparent left-0 right-0 top-full md:top-auto`}>
+          <div className="flex flex-col md:flex-row md:space-x-6 p-4 md:p-0">
+            <a href="#home" className="py-2 font-semibold hover:text-gray-500">Home</a>
+            <a href="#about" className="py-2 font-semibold hover:text-gray-500">About</a>
+            <a href="#techstack" className="py-2 font-semibold hover:text-gray-500">TechStack</a>
+            <a href="#projects" className="py-2 font-semibold hover:text-gray-500">Projects</a>
+            <a href="#contact" className="py-2 font-semibold hover:text-gray-500">Contact</a>
+          </div>
         </div>
       </div>
     </nav>
